@@ -1,0 +1,1478 @@
+/*כל מה שנכתב כהערה צריך לסכם למחברת*/
+:root {
+  --color-primary: #2584ff;
+  --color-secondary: #00d9ff;
+  --color-accent: #ff3400;
+  --color-headings: #1b0760;
+  --color-body: #918ca4;
+  --color-body-darker: #5c5577;
+  --color-border: #ccc;
+  --border-radius: 30px;
+}
+
+*, /*סלקטור אוניברסלי */
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/*Typography*/
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.5;
+  color: var(--color-body);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-headings);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.collapsible__h3 {
+  /*סטייל שלי*/
+  display: inline-block;
+  margin: 1.6rem 0 3rem 0;
+  font-size: 3rem;
+}
+
+.nav__brand .collapsible__h3 {
+  font-size: 2.5rem;
+  margin-top: 1.9rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 8rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}
+
+/*Links*/
+a {
+  text-decoration: none;
+}
+.link-arrow {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.link-arrow::after {
+  content: "-->";
+  margin-left: 5px;
+  transition: margin 0.15s; /*this is posible th apply transition on any change in the page if the "::hover" posudo selector is existe(check it out)*/
+}
+
+.link-arrow:hover::after {
+  /*apply the margin-left 10px, when your hover on the link (on the arrow sign) בעצם מה שמתבצע פה זה שכאשר תרחף עם העכבר על החץ הוא יזוז שמאלה כי המאפיין מארג'ין גדל ב5 פיקסלים. חשוב לדעת שהחץ נבנה מפסודו סלקטור של אפטר(אחרי) ובעצם אני מגדיר בשורה הזאת שכאשר תרחף מעל הפסודו סלקטור אפטר(אחרי) אתה תקבל את המארג'ין שלך. */
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .link-arrow {
+    font-size: 1.5rem;
+  }
+}
+
+/* Badges */
+
+.badge {
+  border-radius: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  white-space: nowrap; /*אחראי לזה שכאשר אין מספיק מקום לטקסט הוא לא גולש לשורה שנייה*/
+}
+
+.badge--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.badge--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.badge--small {
+  font-size: 1.6rem; /*זה כותב מחדש את הגודל שכתבנו למעלה לתגים בגלל שזה נמצא אחריו בקוד*/
+  padding: 0.5rem 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .badge {
+    font-size: 1.8rem;
+  }
+
+  .badge--small {
+    font-size: 1.2rem;
+  }
+}
+
+/* Lists */
+.list {
+  list-style: none; /*השורה הזאת נועדה להיפטר מהגדרת ברירת מחדל שמביאה לרשימה נקודות */
+  padding-left: 0;
+  white-space: nowrap;
+}
+
+.block--skewed-right .list--media:last-child {
+  padding-bottom: 12vh;
+}
+
+.list--media {
+  white-space: wrap;
+}
+
+.list--inline .list__item {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.list--tick {
+  list-style-image: url(../images/tick.svg);
+  padding-left: 3rem;
+  color: var(--color-headings);
+}
+
+.list--tick .list__item {
+  padding-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .list--tick .list__item {
+    padding-left: 0;
+  }
+
+  .block--skewed-right .list--media:last-child {
+    padding-bottom: 6vh;
+  }
+}
+
+/* Icons */
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.icon--small {
+  width: 30px;
+  height: 30px;
+}
+
+.icon--media {
+  width: 50px;
+  height: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .icon--media {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.icon--medium {
+  width: 50px;
+  height: 50px;
+  text-align: left;
+  float: left;
+  margin: 0.7rem 0 0 1rem;
+}
+.icon--large {
+  /*סטייל שלי*/
+  width: 64px;
+  height: 64px;
+  float: left;
+}
+.icon--primary {
+  fill: var(
+    --color-primary
+  ); /*פיל, הוא אלמנט שפועל רק על קבצי אס.וי.ג'י. ונועד למלא אותם בצבע שונה */
+}
+
+.icon--white {
+  fill: white;
+}
+
+.icon--grey {
+  /*סטייל שלי */
+  fill: #393939;
+  background: white;
+  border-radius: 50px;
+  box-sizing: var(--color-body);
+}
+
+.icon-container {
+  background: #f3f9fa;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container--accent {
+  background: var(--color-accent);
+}
+
+/*Buttons*/
+.btn {
+  border-radius: 40px;
+  border: 0;
+  cursor: pointer; /*משנה את הצורה של העכבר כאשר אתה מסמן על האלמנט מחץ ליד*/
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  outline: 0; /*מונע גבול סביב האלמנט כאשר נלחץ עליו*/
+  padding: 2rem 4vw;
+  text-transform: uppercase;
+  white-space: nowrap; /*מוודא שהטקסט תמיד ישאר באותה שורה*/
+  text-align: center; /*מוודא שתמיד הטקסט יהיה באמצע */
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    font-size: 1.5rem;
+  }
+}
+
+.btn .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: #3a8ffd;
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.btn--secondary:hover {
+  background: #00c8eb;
+}
+
+.btn--accent {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+@media screen and (max-width: 500px) {
+  .input-group__text {
+    font-size: 0;
+  }
+  .btn .icon {
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    padding-left: 4px;
+  }
+
+  .input-group .btn--accent {
+    padding: 1.4rem 1.3rem;
+  }
+
+  .input-group .input {
+    padding-right: 0.5rem;
+  }
+}
+.btn--accent:hover {
+  background: #eb4217;
+  color: #fff;
+}
+
+.btn--stretched {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.btn--block {
+  width: 100%;
+  display: inline-block;
+}
+
+.btn--outline {
+  background: #fff;
+  color: var(--color-headings);
+  border: 2px solid var(--color-headings);
+}
+
+.btn--outline:hover {
+  background: var(--color-headings);
+  color: #fff;
+}
+
+/*inputs*/
+.input {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  color: var(--color-headings);
+  font-size: 2rem;
+  outline: 0; /*מבטל את הקו החיצוני שמופיע בברירת מחדל כאשר אתה לוחץ על התיבה*/
+  padding: 1.5rem 3.5rem;
+}
+
+::placeholder {
+  /*פסודו סלקטור בשביל פלייס הולדר בתוך תיבה*/
+  color: #cdcbd7;
+}
+
+.input-group {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  display: flex;
+}
+
+.input-group .input {
+  /*במילים אחרות, כאשר הקבוצה של אינפוט נמצאת בתוך הקבוצה של אינפוט גרופ אז תפעיל את הסטייל הזה שיחול רק על קבוצת אינפוט זה עובד אפילו אם הקבוצות לא באותו אלמנט ,השיטה הזאת נקרת קינון.*/
+  border: 0;
+  flex-grow: 1;
+  padding: 1.5rem 2rem;
+  width: 0;
+}
+
+.input-group .btn {
+  margin: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .input {
+    font-size: 1.5rem;
+  }
+}
+
+/*Cards*/
+.card {
+  border-radius: 7px;
+  box-shadow: 0 0 20px 10px #f3f3f3;
+  overflow: hidden;
+}
+
+.card__header,
+.card__body {
+  padding: 4rem 3.5rem;
+}
+
+.card--primary .card__header {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.card--secondary .card__header {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.card--primary .badge--primary {
+  background: #126de4;
+}
+
+.card--secondary .badge--secondary {
+  background: #02cdf1;
+}
+
+.grid--1x3 .plan {
+  /*סטייל שלי*/
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+/* Plans */
+.plan {
+  transition: transform 0.2s ease-out;
+}
+
+.plan__name {
+  color: #fff;
+  margin: 0;
+  font-weight: 500; /*אנו משתמשים פה בגופן שהוא "משתנה" לפיכך אנו לא מקבלים תוספת משקל למסמך כאשר אנו מגדירים עובי שונה לגופן*/
+  font-size: 2.4rem;
+}
+.plan__price {
+  font-size: 6rem;
+}
+
+.plan__billing-cycle {
+  font-size: 2.4rem;
+  font-weight: 300;
+  opacity: 0.8;
+  margin-right: 1rem;
+}
+
+.plan__description {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.plan .list__item {
+  margin-bottom: 2rem;
+}
+
+.plan--popular {
+  transform: scale(1.1);
+}
+
+.plan--popular .card__header {
+  position: relative;
+}
+
+.plan--popular .card__header::before {
+  /*כאשר קארד האדר נמצא בתוך פלאן פופולאר אז יופעל פסודו סלקטור "לפני" קארד האדר */
+  content: url(../images/popular.svg);
+  width: 35px;
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: 5%;
+}
+
+.card--primary .plan__description {
+  color: #9ec0ff;
+}
+
+.plan:hover {
+  transform: scale(1.05);
+}
+
+.plan--popular:hover {
+  transform: scale(1.15);
+}
+
+@media screen and (max-width: 380px) {
+  .list__item {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    margin: 0.7rem 0;
+    padding: 1.8rem 4vw;
+  }
+
+  .card__header {
+    padding: 2rem 1rem 3rem 2rem;
+  }
+
+  .card__body {
+    padding: 3rem 3rem 2rem 3rem;
+  }
+
+  .plan__price {
+    font-size: 4.8rem;
+  }
+
+  .plan__billing-cycle {
+    font-size: 2rem;
+    margin-right: 0;
+  }
+
+  .plan__name {
+    font-size: 2rem;
+  }
+
+  .plan__description {
+    font-size: 1.7rem;
+  }
+
+  .plan .badge {
+    font-size: 1.1rem;
+  }
+
+  .plan--popular .card__header::before {
+    width: 3rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .plan__name {
+    font-size: 1.4rem;
+  }
+  .plan__price {
+    font-size: 5rem;
+  }
+  .plan__billing-cycle {
+    font-size: 1.6rem;
+  }
+  .plan__description {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .block-plans {
+    padding: var(--padding-vertical) 0.5rem;
+  }
+
+  .list__item {
+    font-size: 1.45rem;
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    margin: 0.4rem 0;
+    padding: 1.4rem 4vw;
+  }
+
+  .card__header {
+    padding: 1.5rem 0.7rem 2.3rem 1.5rem;
+  }
+
+  .card__body {
+    padding: 2.3rem 2.3rem 1.5rem 2.3rem;
+  }
+
+  .plan__price {
+    font-size: 3.6rem;
+  }
+
+  .plan__billing-cycle {
+    font-size: 1.5rem;
+    margin-right: 0;
+  }
+
+  .plan__name {
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .plan__description {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+  }
+
+  .card .badge {
+    font-size: 1.1rem;
+  }
+
+  .plan--popular .card__header::before {
+    width: 2.5rem;
+  }
+}
+/* Media */
+.media {
+  margin-bottom: 4rem;
+  display: flex;
+}
+
+.grid--1x2 .media {
+  margin-bottom: 7rem;
+}
+
+.grid--1x4 .media {
+  margin-bottom: 7rem;
+}
+
+.media__title {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.media__body {
+  margin: 0 2rem;
+}
+
+.media__body > p {
+  clear: left;
+  font-size: 2rem;
+}
+
+.media__image {
+  margin-top: 1rem;
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
+  background: #f3f9fa;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block--dark .media__image {
+  background: none;
+}
+
+.grid--1x4 .media__image {
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .media {
+    margin-bottom: 4rem;
+    display: contents;
+  }
+
+  .quote .media {
+    display: flex;
+  }
+
+  .media__title {
+    font-size: 2.4rem;
+  }
+
+  .media__body > p {
+    font-size: 2rem;
+  }
+
+  .media__image {
+    margin-bottom: 0;
+    float: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .media__image {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    margin-bottom: 1.5rem;
+    margin-left: 2rem;
+  }
+
+  .media__title {
+    font-size: 1.8rem;
+  }
+
+  .grid--1x2 .media {
+    margin-bottom: 0;
+  }
+
+  .media__body > p {
+    font-size: 1.8rem;
+  }
+}
+
+/* Quote */
+.quote {
+  font-size: 3rem;
+  font-style: italic;
+  color: var(--color-body-darker);
+  line-height: 1.3;
+  margin: auto;
+  max-width: 450px;
+}
+
+.quote__text::before {
+  content: open-quote; /* פתיחת מרכאות*/
+}
+
+.quote__text::after {
+  content: close-quote; /* סגירת מרכאות*/
+}
+
+.quote__author {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin: 0;
+}
+
+.quote__line {
+  position: relative;
+  bottom: 10px;
+}
+
+.quote__organization {
+  font-size: 2rem;
+  color: var(--color-headings);
+  opacity: 0.4;
+  font-style: normal;
+}
+
+@media screen and (max-width: 550px) {
+  .quote {
+    font-size: 2rem;
+  }
+
+  .quote__author {
+    font-size: 2rem;
+  }
+
+  .quote__organization {
+    font-size: 1.32rem;
+  }
+
+  .quote .media__body {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .quote {
+    font-size: 2rem;
+  }
+
+  .quote__author {
+    font-size: 2.4rem;
+  }
+
+  .quote__organization {
+    font-size: 1.6rem;
+    margin-bottom: 0;
+  }
+}
+
+/*Grides*/
+.grid {
+  display: grid;
+}
+
+.grid--1x4 {
+  grid-template-rows: 1fr auto 1fr auto 1fr auto 1fr auto;
+  padding: 0 1rem 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .grid--1x2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid--1x3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .grid--1x4 {
+    align-items: center;
+    font-size: 2.4rem;
+    grid-template-areas:
+      "one     two"
+      "three  four"
+      "five    six"
+      "seven eight";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    justify-content: center;
+    margin: auto;
+    max-width: 1240px;
+    padding: 2rem;
+    padding: 0 4rem 0 4rem;
+    row-gap: 4rem;
+  }
+  .grid-place-one {
+    grid-area: one;
+  }
+  .grid-place-two {
+    grid-area: two;
+  }
+  .grid-place-three {
+    grid-area: four;
+  }
+  .grid-place-four {
+    grid-area: three;
+  }
+  .grid-place-five {
+    grid-area: five;
+  }
+  .grid-place-six {
+    grid-area: six;
+  }
+  .grid-place-seven {
+    grid-area: eight;
+  }
+  .grid-place-eight {
+    grid-area: seven;
+  }
+}
+/* Advantages */
+
+.grid__picture {
+  max-width: 600px;
+  margin: auto auto 9rem auto;
+}
+
+.advantages__description {
+  text-align: center;
+  margin: 12vh 1rem 4rem 1rem;
+}
+
+.advantages__h2 {
+  font-weight: 800;
+  max-width: 40rem;
+  margin: auto auto 2.5rem auto;
+}
+
+.advantages__description > p {
+  font-size: 2rem;
+  margin: 0 4rem 2rem 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .advantages__description {
+    margin: 12vh 0 5rem 0;
+  }
+
+  .advantages__h2 {
+    max-width: none;
+    margin: auto auto 2rem auto;
+  }
+
+  .grid__picture {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .media__p {
+    font-size: 1.8rem;
+  }
+}
+
+/* Testimonial */
+.testimonial {
+  padding: 2rem 2rem 2rem 4rem;
+  margin: 3rem;
+}
+
+.container-center {
+  display: flex;
+  justify-content: center;
+}
+
+.callout-center {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.testimonial__image {
+  position: relative;
+  padding: 3rem 1.5rem 3rem 0;
+  max-width: 350px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.testimonial__image > img {
+  /* פה ניתן להשתמש בדיירקט צ'ילד בתור סלקטור כי ככה אני לא צריך לבנות קלאס חדש לבן והחיסרון שזה מביא תמיד שאם נראה לשנות את המבנה והבן כבר לא יהיה בן יותר , לא קיים פה כי לא סביר בכלל שנרצה לשנות את המבנה*/
+  width: 100%;
+  max-width: 350px;
+}
+
+.testimonial__image > .icon-container {
+  position: absolute;
+  top: 5rem;
+  right: -5px;
+  width: 7vw;
+  height: 7vw;
+  max-width: 7rem;
+  max-height: 7rem;
+  min-width: 4rem;
+  min-height: 4rem;
+}
+
+.icon--small {
+  width: 3.5vw;
+  height: 3.5vw;
+  max-width: 3.5rem;
+  max-height: 3.5rem;
+  min-width: 2rem;
+  min-height: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .testimonial {
+    margin: 2rem;
+    padding-left: 4rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .testimonial .quote , /* הפסיק "," מאפשר לשני אלמנטים שונים לקבל את הסטייל המוחל למטה ככה גם "ציטוט" וגם "ציטוט המחבר" יקבלו את הסטייל של זה*/
+  .testimonial .quote__author {
+    font-size: 2.4rem;
+  }
+  .testimonial .quote {
+    margin: auto;
+  }
+
+  .testimonial__image > .icon-container {
+    top: 5rem;
+    right: 30px;
+  }
+
+  .testimonial__image {
+    position: relative;
+    padding: 3rem 6rem 3rem 3rem;
+    max-width: 500px;
+  }
+}
+
+/* Callouts */
+.callout {
+  max-width: 1140px;
+  margin: 7rem 3rem 0 3rem;
+  padding: 4rem;
+  border-radius: 30px;
+  position: absolute;
+  bottom: 8rem;
+}
+
+.callout--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.callout__heading {
+  color: #fff;
+  margin-top: 0;
+  font-size: 4rem;
+}
+
+.callout .btn {
+  justify-self: center; /*מאפיין שמופעל על פריט בתוך גריד ליישור אנכי או אופקי*/
+  align-self: center; /*מאפיין שמופעל על פריט בתוך גריד ליישור אנכי או אופקי*/
+}
+
+.callout__content {
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .callout {
+    margin: 7rem 1.5rem 0 1.5rem;
+    padding: 3rem 2rem;
+    border-radius: 30px;
+    bottom: 6rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .callout .grid--1x2 {
+    grid-template-columns: 1fr auto;
+  }
+
+  .callout__content {
+    text-align: left;
+  }
+
+  .callout .btn {
+    justify-self: start;
+    margin: 0 2rem;
+  }
+
+  .callout {
+    bottom: 10rem;
+  }
+}
+
+/* Collapsibles */
+.collapsible__header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #393939; /*סטייל שלי*/
+  margin: 0 4rem 0 4rem; /*סטייל שלי*/
+}
+
+.collapsible__heading {
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+.collapsible__chevron {
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+}
+
+.collapsible__content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s; /*האלמנט הכל(אולל) מאפשר לכל המאפיינים לקבל את השינוי מצב*/
+}
+
+.collapsible--expanded .collapsible__chevron {
+  transform: rotate(0);
+}
+
+.collapsible--expanded .collapsible__content {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+/* Blocks */
+.block {
+  --padding-vertical: 6rem; /*חשוב! מגדירים כאן משתנה שניתן להפעיל אותו על האלמנט הזה ועל כל אלמנטי הבנים שלו, ובדרך הזאת במידה ונשנה את המאפיין המשתנה של האבא ככה זה יופעל גם על כל בן שמשתמש במשתנה הזה וכך לא נצטרך לזכור לשנות בשני נקודות במקביל את ערך המאפיין*/
+  padding: var(--padding-vertical) 3rem; /*קריאה להפעלת המשתנה באלמנט הזה*/
+}
+
+.block__header {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.block__heading {
+  margin-top: 0;
+}
+
+.block--dark {
+  background: #000;
+  color: #7b858b;
+}
+
+.block--dark h1,
+.block--dark h2,
+.block--dark h3,
+.nav__brand h3 {
+  color: #fff;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto; /*כאשר יש לך שטח פנוי הוא יתחלק בין שני הצדדים באופן שווה זה מה שמעניק לי המאפיין אוטומט בפאדינג */
+}
+
+.testimonial {
+  margin: 3rem 3rem 35rem 3rem;
+}
+
+.block--skewed-right {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 95%);
+  padding-bottom: calc(
+    var(--padding-vertical) + 4rem
+  ); /*בשורה הזאת אני מגדיר את המאפיין של האבא פלוס 4 ראם, שים לב שהסימן פלוס חייב להיות עם רווח משאר המילים */
+}
+
+.block--skewed-left {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 0% 100%);
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+@media screen and (max-width: 500px) {
+  .block--dark {
+    padding: var(--padding-vertical) 1rem; /*קריאה להפעלת המשתנה באלמנט הזה*/
+  }
+
+  .testimonial {
+    margin: 1.5rem 1.5rem 30rem 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .block--skewed-right {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 85%);
+  }
+
+  .block--skewed-left {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+  }
+
+  .hero__image {
+    margin-bottom: 7rem;
+  }
+
+  .testimonial {
+    margin: 3rem 3rem 22rem 3rem;
+  }
+}
+
+@media screen and (min-width: 2100px) {
+  .block--skewed-right {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+  }
+
+  .block--skewed-left {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  }
+
+  .hero__image {
+    margin-bottom: 10rem;
+  }
+
+  .block-plans {
+    max-width: 50vw;
+  }
+}
+
+/* Navigation Bar */
+.background__nav {
+  background: #000;
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  align-items: center;
+  max-width: 1240px;
+  flex-grow: 1;
+}
+
+.nav .list {
+  width: 100%;
+  margin: 0;
+}
+
+.nav__item {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.nav__item > a {
+  /* המטרה שבחרתי פה בדיירקט צ'יילד של האלמנט זה בגלל שהאלמנטים בתוך הרשימה בנויים מקישורים ואי אפשר לקבוע סטייל לקישור בדרך הרגילה אלא אם כן ניתן לקישור בעצמו קלאס וזה מיותר לפיכך אנו משתמשים בדיירקט צ'יילד */
+  color: #d2d0db;
+  transition: color 0.3s;
+}
+
+.nav__item > a:hover {
+  color: #fff;
+}
+
+.nav__toggler {
+  opacity: 0.5;
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+}
+
+.nav__brand {
+  transform: translateY(
+    5px
+  ); /*נועד לפתור בעיה, הלוגו לפני כן היה יותר מידי למעלה ועכשיו הורדנו אותו מעט -לא צריך לכתוב */
+}
+
+.nav.collapsible--expanded .nav__toggler {
+  /* כאן אנו הבאנו סלקטור שבוחר בסטייל הזה רק מתי שבאותו אלמנט יש את שני הקלאסים האלה ואם לא יהיה אותם הסטייל לא יוחל, כדאי לדעת שבשביל שזה יעבוד צריך ששני הקלאסי סלקטורים יהיו צמודים בלי רווח בניהם */
+  /*לא צריך לסכם: הוא מפנה לjava script כאשר נכתב .collapsible--expanded*/
+  opacity: 1;
+  box-shadow: 0 0 0 3px #666;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+
+  .nav .list {
+    width: auto; /*עד עכשיו הרשימה התחילה בשורה חדשה כי היא הייתה על 100 אחוז רוחב והיא הוגדרה לדיספלי ראהפ אבל עכשיו שהיא הוגדרה לגודל אוטומטי היא תיכנס לשורה הראשונה כי יש שם מספיק מקום בשבילה*/
+    display: flex;
+    font-size: 1.6rem;
+    max-height: 100%; /* המאפיין הזה ושורה הבאה מיועדים לגרום לרשימה שלנו להיות ניראת תמיד כי ככה מנענו ממנה להיות מוצגת על ידי זה שנתנו לה רוחב של אפס אחוז */
+    opacity: 1;
+  }
+
+  .nav__item {
+    border: none;
+  }
+
+  .background__nav {
+    padding-bottom: 5rem;
+  }
+}
+
+/* Hero */
+
+.hero__tagline {
+  font-size: 2rem;
+  color: #b9c3cf;
+  letter-spacing: 1px;
+  margin: 2rem 0 5rem;
+}
+
+.hero__image {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 0;
+  }
+
+  .hero__content {
+    text-align: left;
+    align-self: center;
+  }
+}
+
+/* Domain block */
+.block-domain {
+  padding-bottom: 0 !important;
+}
+
+.block-domain .input-group {
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0;
+  margin: 4rem auto;
+  max-width: 670px;
+}
+
+.block-domain__prices {
+  color: var(--color-headings);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 6rem);
+  font-size: 2rem;
+  font-weight: 600;
+  justify-items: center;
+  max-width: 700px;
+  margin: 0 auto; /*דואג לזה שאם יש בצד אחד הרבה מארגין ובצד שני אין כולם, אז זה מתאזין ובשניהם עכשיו יש שווה בשווה*/
+}
+
+@media screen and (min-width: 500px) and (max-width: 899px) {
+  .block-domain__prices {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .block-domain__prices {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(11.7rem, 1fr)
+    ); /* יצרנו פה טבלה שמגדירה את הגודל שלה באופן אוטומטי לפי האובייקטים שבתוכה תוך הענקת מינימום מקום של 100 פיקסלים לאלמנטים שיתאימו לגודל הזה עד מקסימום מקום של חלק אחד מתוך מקום אין סופי ובמילים אחרות מקסימום גודל שיתאים אוטומטי לאלמנט הגדול. */
+    max-width: 1000px;
+  }
+}
+
+/* Plans Block */
+.block-plans .grid {
+  gap: 8rem 4rem;
+}
+
+.block-plans .card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.showcase-block__img {
+  width: 500px;
+}
+
+/* Showcase Block */
+.block-showcase__image > img {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%; /*  ההבדל בין חמישים אחוזים וחמישים אחוזים לבין חלק אחד וחלק אחד הוא שכאשר אני מגדיר חלוקה לפי אחוזים החלוקה תלוייה בגודל של אלמנט האבא לעומת זאת כאשר אני מגדיר חלוקה לפי חלקים אז החלוקה מתבצעת לפי כמה שטח פנוי קיים ואז זה מתחלק לשניים וזה רלוונטי כאשר יש בתוך התבלה שלנו תמונה בשטח אחד ובשטח שני יש לנו טקסט שהתמונה תיקח הרבה יותר שטח מהחלק עם טקסט ובגלל שאין כמעט שטח פנוי אז הטקסט יהיה צפוף*/
+  }
+
+  .block-showcase__image {
+    justify-self: end;
+    overflow: hidden;
+    padding-bottom: 15rem;
+  }
+
+  .block-showcase__image > img {
+    /*זה בסדר להשתמש פה בדיירקט ציילד בגלל שאין סיכוי שהמצב פה ישתנה ולא יהיה תמונה בתוך האלמנט פיקטצ'ר*/
+    max-width: 700px;
+    width: auto;
+  }
+}
+
+/* Footer */
+.footer {
+  background: #232323;
+  position: relative;
+  padding-top: 30rem;
+}
+
+.footer a {
+  color: #777;
+  transition: color 0.3s;
+}
+
+.footer a:hover,
+a:focus {
+  color: #fff;
+}
+
+.collapsible .collapsible__header {
+  /* הוא קורא לזה קלאס נפרד : footer__section*/
+  padding: 2rem 0 2rem 0;
+  margin: 0 4rem 0 4rem;
+  border-bottom: 0;
+}
+
+.footer__section {
+  border-bottom: 1px solid #393939;
+}
+
+.footer__section .list {
+  margin: 0;
+}
+
+.collapsible .list__item {
+  margin-bottom: 2rem;
+  margin-left: 4rem;
+}
+
+.footer__heading {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.collapsible__container {
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-content: center;
+  align-items: start;
+}
+
+.logo {
+  margin: 7rem 0 0 1.5rem;
+  text-align: left;
+}
+
+.footer__brand {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.footer__brand img {
+  max-width: 64px;
+  width: 100%;
+}
+
+.footer__copyright {
+  font-size: 2.1rem;
+  color: #fff;
+  opacity: 0.3;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    padding-top: 20rem;
+  }
+
+  .footer__sections {
+    grid-template-columns: repeat(1, minmax(8rem, 1fr)) repeat(
+        auto-fit,
+        minmax(11rem, 1fr)
+      ); /*אוטו-פיט זה פונקציה שמאפשרת תמיד לחלק את המקום הקיים בין כל האלמנטים בטבלה גם אם נוסיף בעתיד אלמנטים חדשים, הבעיה עם הפונקציה הזאת שאי אפשר להקציב את הגודל של כל חלק בחלוקה של חלק אחד לכל אלמנט אלא צריך לתת מינימום ומקסימום גודל לכל אלמנט*/
+  }
+
+  .footer .collapsible__chevron {
+    display: none;
+  }
+
+  .footer .collapsible__content {
+    opacity: 1;
+    max-height: 100%;
+  }
+
+  .footer__brand {
+    order: -1; /*מאפשר לסדר אלמנטים בטבלה לפי מספרים עולים*/
+    margin-top: -4rem;
+  }
+
+  .footer__copyright {
+    font-size: 1.3rem;
+  }
+
+  .footer__section {
+    border: 0;
+  }
+
+  .footer__heading {
+    font-size: 1.6rem;
+  }
+
+  .footer .footer__section .collapsible__header {
+    margin: 0 25%;
+  }
+
+  .collapsible__container {
+    /*סטייל שלי*/
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+  }
+
+  .logo {
+    margin: 5rem 0 2rem 0;
+  }
+
+  .collapsible .collapsible__header {
+    /* הוא קורא לזה קלאס נפרד : footer__section*/
+    padding: 2rem 0 2rem 0;
+    margin: 0 4rem 0 4rem;
+    border: none;
+  }
+
+  .collapsible .list {
+    border: none;
+  }
+
+  .footer .list__item {
+    font-size: 1.4rem;
+    white-space: normal;
+    margin-left: 25%;
+  }
+
+  .footer__brand img {
+    width: 44px;
+    height: 44px;
+    max-width: 44px;
+  }
+
+  .collapsible__h3 {
+    font-size: 2rem;
+    margin-top: 1.1rem;
+  }
+}
