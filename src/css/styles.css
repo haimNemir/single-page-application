@@ -1,4 +1,6 @@
 /*כל מה שנכתב כהערה צריך לסכם למחברת*/
+@import "./normalize.css"; /*נועד בשביל לחסוך בהפעלת האתר לתוכנה "פארסל" שלא תצטרך להביא שני "סטיילשיט" אלא רק סטיילשיט אחד ובתוכו יש קישור לסטיילשיט השני  */
+
 :root {
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
@@ -68,6 +70,14 @@ h3 {
 
 p {
   margin-top: 0;
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 5.2rem;
+    max-width: 95%;
+    margin: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -989,7 +999,7 @@ a {
     margin: 7rem 1.5rem 0 1.5rem;
     padding: 3rem 2rem;
     border-radius: 30px;
-    bottom: 6rem;
+    bottom: 3rem;
   }
 }
 
