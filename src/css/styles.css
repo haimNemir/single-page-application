@@ -57,7 +57,6 @@ h3 {
 }
 
 .collapsible__h3 {
-  /*סטייל שלי*/
   display: inline-block;
   margin: 1.6rem 0 3rem 0;
   font-size: 3rem;
@@ -112,7 +111,7 @@ a {
 .link-arrow::after {
   content: "-->";
   margin-left: 5px;
-  transition: margin 0.15s; /*this is posible th apply transition on any change in the page if the "::hover" posudo selector is existe(check it out)*/
+  transition: margin 0.15s; /*this is posible to apply transition on any change in the page if the "::hover" posudo selector is existe(check it out)*/
 }
 
 .link-arrow:hover::after {
@@ -250,7 +249,6 @@ a {
 }
 
 .icon--grey {
-  /*סטייל שלי */
   fill: #393939;
   background: white;
   border-radius: 50px;
@@ -373,7 +371,7 @@ a {
   border: 1px solid var(--color-border);
   color: var(--color-headings);
   font-size: 2rem;
-  outline: 0; /*מבטל את הקו החיצוני שמופיע בברירת מחדל כאשר אתה לוחץ על התיבה*/
+  outline: 0;
   padding: 1.5rem 3.5rem;
 }
 
@@ -437,7 +435,6 @@ a {
 }
 
 .grid--1x3 .plan {
-  /*סטייל שלי*/
   display: grid;
   align-items: center;
   justify-content: center;
@@ -912,7 +909,7 @@ a {
 }
 
 .testimonial__image > img {
-  /* פה ניתן להשתמש בדיירקט צ'ילד בתור סלקטור כי ככה אני לא צריך לבנות קלאס חדש לבן והחיסרון שזה מביא תמיד שאם נראה לשנות את המבנה והבן כבר לא יהיה בן יותר , לא קיים פה כי לא סביר בכלל שנרצה לשנות את המבנה*/
+  /* פה ניתן להשתמש בדיירקט צ'ילד בתור סלקטור כי ככה אני לא צריך לבנות קלאס חדש לבן והחיסרון שזה מביא תמיד שאם נרצה לשנות את המבנה והבן כבר לא יהיה בן יותר , לא קיים פה כי לא סביר בכלל שנרצה לשנות את המבנה*/
   width: 100%;
   max-width: 350px;
 }
@@ -1027,8 +1024,8 @@ a {
 .collapsible__header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #393939; /*סטייל שלי*/
-  margin: 0 4rem 0 4rem; /*סטייל שלי*/
+  border-bottom: 1px solid #393939;
+  margin: 0 4rem 0 4rem;
 }
 
 .collapsible__heading {
@@ -1060,7 +1057,7 @@ a {
 /* Blocks */
 .block {
   --padding-vertical: 6rem; /*חשוב! מגדירים כאן משתנה שניתן להפעיל אותו על האלמנט הזה ועל כל אלמנטי הבנים שלו, ובדרך הזאת במידה ונשנה את המאפיין המשתנה של האבא ככה זה יופעל גם על כל בן שמשתמש במשתנה הזה וכך לא נצטרך לזכור לשנות בשני נקודות במקביל את ערך המאפיין*/
-  padding: var(--padding-vertical) 3rem; /*קריאה להפעלת המשתנה באלמנט הזה*/
+  padding: var(--padding-vertical) 3rem; /*קריאה להפעלת המשתנה באלמט זה + החלת 3ראם של פאדינג במאוזן*/
 }
 
 .block__header {
@@ -1219,7 +1216,7 @@ a {
     width: auto; /*עד עכשיו הרשימה התחילה בשורה חדשה כי היא הייתה על 100 אחוז רוחב והיא הוגדרה לדיספלי ראהפ אבל עכשיו שהיא הוגדרה לגודל אוטומטי היא תיכנס לשורה הראשונה כי יש שם מספיק מקום בשבילה*/
     display: flex;
     font-size: 1.6rem;
-    max-height: 100%; /* המאפיין הזה ושורה הבאה מיועדים לגרום לרשימה שלנו להיות ניראת תמיד כי ככה מנענו ממנה להיות מוצגת על ידי זה שנתנו לה רוחב של אפס אחוז */
+    max-height: 100%; /* המאפיין הזה ושורה הבאה מיועדים לגרום לרשימה שלנו להיות נראת תמיד כי ככה מנענו ממנה להיות מוצגת על ידי זה שנתנו לה רוחב של אפס אחוז */
     opacity: 1;
   }
 
@@ -1319,7 +1316,7 @@ a {
 
 @media screen and (min-width: 768px) {
   .block-showcase .grid {
-    grid-template-columns: 50% 50%; /*  ההבדל בין חמישים אחוזים וחמישים אחוזים לבין חלק אחד וחלק אחד הוא שכאשר אני מגדיר חלוקה לפי אחוזים החלוקה תלוייה בגודל של אלמנט האבא לעומת זאת כאשר אני מגדיר חלוקה לפי חלקים אז החלוקה מתבצעת לפי כמה שטח פנוי קיים ואז זה מתחלק לשניים וזה רלוונטי כאשר יש בתוך התבלה שלנו תמונה בשטח אחד ובשטח שני יש לנו טקסט שהתמונה תיקח הרבה יותר שטח מהחלק עם טקסט ובגלל שאין כמעט שטח פנוי אז הטקסט יהיה צפוף*/
+    grid-template-columns: 50% 50%; /*  ההבדל בין חמישים אחוזים וחמישים אחוזים לבין חלק אחד וחלק אחד הוא שכאשר אני מגדיר חלוקה לפי אחוזים החלוקה תלוייה בגודל של אלמנט האבא לעומת זאת כאשר אני מגדיר חלוקה לפי חלקים אז החלוקה מתבצעת לפי כמה שטח פנוי קיים ואז זה מתחלק לשניים וזה רלוונטי כאשר יש בתוך הטבלה שלנו תמונה בשטח אחד ובשטח שני יש לנו טקסט שהתמונה תיקח הרבה יותר שטח מהחלק עם טקסט ובגלל שאין כמעט שטח פנוי אז הטקסט יהיה צפוף*/
   }
 
   .block-showcase__image {
@@ -1460,7 +1457,6 @@ a:focus {
   }
 
   .collapsible .collapsible__header {
-    /* הוא קורא לזה קלאס נפרד : footer__section*/
     padding: 2rem 0 2rem 0;
     margin: 0 4rem 0 4rem;
     border: none;
